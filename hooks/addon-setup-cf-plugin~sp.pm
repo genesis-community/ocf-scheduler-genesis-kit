@@ -76,9 +76,11 @@ sub perform {
 
 	# Construct download URL
 	# Note: GitHub release assets use format: ocf-scheduler-cf-plugin-1.2.0+linux.amd64
-	# The version string from the API includes 'v' prefix (e.g., 'v1.2.0'), so we strip it
+	# The version string from the API includes 'v' prefix (e.g., 'v1.2.0'), so we strip it.
+	# The 2.0.0 release was tagged 'v-2.0.0' while its assets read '2.0.0', so the
+	# dash goes too; the download URL below keeps the tag exactly as published.
 	my $version_no_v = $version;
-	$version_no_v =~ s/^v//;
+	$version_no_v =~ s/^v-?//;
 	my $binary_name = "ocf-scheduler-cf-plugin-${version_no_v}+${os}.${arch}";
 	my $download_url =
 "https://github.com/cloudfoundry-community/ocf-scheduler-cf-plugin/releases/download/${version}/${binary_name}";
