@@ -3,9 +3,10 @@ package Genesis::Hook::Addon::Scheduler::SmokeTests v1.0.1;
 use v5.20;
 use warnings; # Genesis min perl version is 5.20
 
-use Genesis qw/info run/;
 # Only needed for development
-BEGIN {push @INC, $ENV{GENESIS_LIB} ? $ENV{GENESIS_LIB} : $ENV{HOME}.'./.genesis/lib'}
+BEGIN {push @INC, $ENV{GENESIS_LIB} ? $ENV{GENESIS_LIB} : $ENV{HOME}.'/.genesis/lib'}
+
+use Genesis qw/info run/;
 
 use parent qw(Genesis::Hook::Addon);
 sub init {
